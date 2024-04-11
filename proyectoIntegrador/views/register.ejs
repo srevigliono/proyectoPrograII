@@ -12,11 +12,40 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
+			<h2 class="col-12"> <i>///////////////////////////////////////// 
+			<form action="" method="get">
+			
+			<div>
+				<label for="email">Email: </label>
+				<input id="email" type="email" name="email" required>
+			</div>
+			<div>
+				<label for="usuario">Usuario: </label>
+				<input id="usuario" type="text" name="usuario" required>
+			</div>
+			<div>
+				<label for="contraseña">Contraseña: </label>
+				<input id="contraseña" type="password" name="contraseña" required>
+			</div>
+			<div>
+				<label for="fecha de nacmiento">Fecha de nacimiento: </label>
+				<input id="fecha nacimiento" type="date" name="fecha nacimiento" required>
+			</div>
+			<div>
+				<label for="Nro de documento">Nro de documento: </label>
+				<input id="documento" type="number" name="documento" required>
+			</div>
+			<div>
+				<label for="foto de perfil">Foto de perfil: </label>
+				<input id="foto" type="text" name="foto" required>
+			</div>
+	
+
+					<button type="submit">Registrarse</button></p>
+			</form>
+				
+				
+	
 			</h2>
 
 	<%- include('./partials/footer.ejs') %>

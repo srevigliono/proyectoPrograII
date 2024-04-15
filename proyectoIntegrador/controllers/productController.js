@@ -3,7 +3,9 @@ const data = require("../db/dataBase");
 const productController = {
     producto:
         function (req ,res) {
-        res.render("product", {title: "Detalles del producto", productos: data})
+            const productos = data.productos
+            console.log(productos);
+        res.render("product", {title: "Detalles del producto", productos})
         }
     ,
     crear:

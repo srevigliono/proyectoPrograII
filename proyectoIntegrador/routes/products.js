@@ -6,3 +6,4 @@ router.get("/detail", productController.producto);
 router.get("/add",productController.crear);
 
 module.exports = router;
+

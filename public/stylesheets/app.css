@@ -464,6 +464,11 @@ textarea.form-input {
   border-radius: 50%;
 }
 
+.imgIndex{
+    height: 160px;
+
+}
+
 .main-title{
   font-size: 25px;
   margin-bottom: 10px;
@@ -528,3 +533,4 @@ textarea.form-input {
     margin: auto;
   }
 }
+

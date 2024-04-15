@@ -125,7 +125,7 @@ const data = {
     },
     {
         imagen: "https://www.apple.com/v/airpods-pro/g/images/meta/og__eui2mpgzwyaa_overview.png?202210240743",
-        nombre: "AirPods Pro 2da Generación",
+        nombre: "AirPods Pro",
         descripcion: "Hasta 2 veces más cancelación activa de ruido. Modo transparencia para escuchar el mundo que te rodea. El nuevo Audio Adaptativo adapta inteligentemente el control de ruido a su entorno. Spatial Audio lleva la inmersión a un nivel notablemente personal. Y una sola carga ofrece 6 horas de duración de la batería.",
         comentarios: 
       [

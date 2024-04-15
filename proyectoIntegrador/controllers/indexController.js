@@ -3,7 +3,7 @@ const data = require("../db/dataBase");
 const indexController = {
     inicio:
         function (req, res) {
-        res.render("index", {title: "Inicio", productos: data})
+        res.render("index", {title: "Inicio", productos: data })
         }
     ,
     bus:

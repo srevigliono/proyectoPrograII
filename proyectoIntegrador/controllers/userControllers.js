@@ -4,25 +4,25 @@ const controller = {
 
     login:{
         function (req, res, next) {
-            res.render("login",{title: "Login"})
+            res.render("login", {title: "Login"})
         }
     },
 
     regis:{
         function (req, res, next) {
-            res.render("registrate",{title: "Regístrate"})
+            res.render("registrate", {title: "Regístrate"})
         }
     },
 
     perf:{
         function (req, res, next) {
-            res.render("perfil",{title: "Perfil"})
+            res.render("perfil", {title: "Perfil"})
         }
     },
 
     editPerf:{
         function (req, res, next) {
-            res.render("editar perfil",{title: "Editar perfil"})
+            res.render("editar perfil", {title: "Editar perfil"})
         }
     }
 

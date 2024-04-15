@@ -8,4 +8,3 @@ router.get("/perfil",)
 router.get("/editarperfil",)
 
 module.exports = router;
-

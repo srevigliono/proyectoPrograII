@@ -3,8 +3,8 @@ var router = express.Router();
 const usersController = require("../controllers/usersControllers");
 
 router.get("/login", usersController.login);
-router.get("/registrate",usersController.regis );
-router.get("/perfil",usersController.perf);
-router.get("/editarPerfil",usersController.editPerf);
+router.get("/registrate",usersController.register );
+router.get("/perfil",usersController.perfil);
+router.get("/editarPerfil",usersController.editarPerfil);
 
 module.exports = router;

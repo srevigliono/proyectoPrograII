@@ -1,33 +1,35 @@
-const data = {
-    usuario:{
+const dataBase = {
+    usuarios:{
         email:"legalega@gmail.com",
         usuario: "Santiago",
         contrasenia: "2444",
         bday: "2004-09-28",
         dni: 46028252,
-        foto: "",
+        foto: "https://via.placeholder.com/150",
+        id: 1
     },
     productos: [
         {
             imagen: "https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2023-06/230605-apple-vision-pro-mn-1510-f23ca3.jpg",
             nombre: "Apple Vision Pro",
             descripcion: "Con Apple Vision Pro, tienes un lienzo infinito que transforma la forma en que usas las aplicaciones que amas. Organice aplicaciones en cualquier lugar y escalelas al tamaño perfecto, haciendo realidad el espacio de trabajo de sus sueños, todo mientras permanece presente en el mundo que lo rodea. Navega por la web en Safari, crea una lista de tareas pendientes en Notas, chatea en Mensajes y muévete sin problemas entre ellas con un vistazo. Incluso puedes llevar tus flujos de trabajo de Mac a Apple Vision Pro de forma inalámbrica con Mac Virtual Display.",
+            userid: 1,
             comentarios: 
             [
             {
                 usuario: "JulianAlvarez19",
                 coment: "¿Incluye cargador?",
-                fotoPerfil: ""
+                fotoPerfil: "https://via.placeholder.com/150"
             },
             {
                 usuario: "CarlaPerez",
                 coment: "¿Son los originales de apple?",
-                fotoPerfil: ""
+                fotoPerfil: "https://via.placeholder.com/150"
             },
             {
                 usuario: "MartínPalermo123",
                 coment: "¿Tienen precio mayorists?",
-                fotoPerfil: ""
+                fotoPerfil: "https://via.placeholder.com/150"
             }
         ]
     },
@@ -40,17 +42,17 @@ const data = {
         {
             usuario: "JulianAlvarez19",
             coment: "¿Incluye cargador?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "CarlaPerez",
             coment: "¿Son los originales de apple?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "MartínPalermo123",
             coment: "¿Tienen precio mayorista?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         }
       ]
     },
@@ -63,17 +65,17 @@ const data = {
         {
             usuario: "JulianAlvarez19",
             coment: "¿Incluye cargador?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "CarlaPerez",
             coment: "¿Son los originales de apple?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "MartínPalermo123",
             coment: "¿Tienen precio mayorists?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         }
       ]
     },
@@ -86,17 +88,17 @@ const data = {
         {
             usuario: "JulianAlvarez19",
             coment: "¿Incluye cargador?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "CarlaPerez",
             coment: "¿Son los originales de apple?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "MartínPalermo123",
             coment: "¿Tienen precio mayorists?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         }
       ]
     },
@@ -109,17 +111,17 @@ const data = {
         {
             usuario: "JulianAlvarez19",
             coment: "¿Incluye cargador?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "CarlaPerez",
             coment: "¿Son los originales de apple?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "MartínPalermo123",
             coment: "¿Tienen precio mayorists?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         }
       ]
     },
@@ -132,17 +134,17 @@ const data = {
         {
             usuario: "JulianAlvarez19",
             coment: "¿Incluye cargador?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "CarlaPerez",
             coment: "¿Son los originales de apple?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "MartínPalermo123",
             coment: "¿Tienen precio mayorists?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         }
       ]
     },
@@ -155,17 +157,17 @@ const data = {
         {
             usuario: "JulianAlvarez19",
             coment: "¿Incluye cargador?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "CarlaPerez",
             coment: "¿Son los originales de apple?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "MartínPalermo123",
             coment: "¿Tienen precio mayorists?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         }
       ]
     },
@@ -178,17 +180,17 @@ const data = {
         {
             usuario: "JulianAlvarez19",
             coment: "¿Incluye cargador?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "CarlaPerez",
             coment: "¿Son los originales de apple?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "MartínPalermo123",
             coment: "¿Tienen precio mayorists?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         }
       ]
     },
@@ -201,17 +203,17 @@ const data = {
         {
             usuario: "JulianAlvarez19",
             coment: "¿Incluye cargador?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "CarlaPerez",
             coment: "¿Son los originales de apple?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "MartínPalermo123",
             coment: "¿Tienen precio mayorists?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         }
       ]
     },
@@ -224,21 +226,21 @@ const data = {
         {
             usuario: "JulianAlvarez19",
             coment: "¿Incluye cargador?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "CarlaPerez",
             coment: "¿Son los originales de apple?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         },
         {
             usuario: "MartínPalermo123",
             coment: "¿Tienen precio mayorists?",
-            fotoPerfil: ""
+            fotoPerfil: "https://via.placeholder.com/150"
         }
       ]
     }
  ]
 }
 
-module.exports = data;
+module.exports = dataBase;

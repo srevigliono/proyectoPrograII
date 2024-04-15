@@ -4,7 +4,6 @@ const productController = {
     producto:
         function (req ,res) {
             const productos = data.productos
-            console.log(productos);
         res.render("product", {title: "Detalles del producto", productos})
         }
     ,

@@ -15,26 +15,15 @@ const usersController = {
     perfil:
         function (req, res, next) {
             const usuarios = data.usuarios
-            const productosUsuario = []
-            for (let i = 0; i < array.length; i++) {
-                const total = ""
-                if (data.usuarios.id === data.productos[i].userid)
-                productosUsuario.push(data.productos[i].userid)
-                else
-                    continue    
-            }
-        
-            
             res.render("profile", {title: "Perfil", usuarios})
         },
 
     editarPerfil:
         function (req, res, next) {
-            res.render("profile-edit", {title: "Editar perfil"})
-        }
-    
-    
-    
+            const usuarios = data.usuarios
+            res.render("profile-edit", {title: "Editar perfil", usuarios})
+        },
+
 };
 
 module.exports = usersController;

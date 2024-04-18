@@ -331,6 +331,8 @@ hr {
   width: 70%;
   display: block;
   margin: auto;
+  padding-top: 100px;
+  padding-bottom: 25px;
 }
 
 .product-detail-info {
@@ -345,9 +347,10 @@ hr {
 }
 
 .product-detail-description {
-  padding: 15px 15px 15px 40px;
+  padding: 15px 15px 15px 100px;
   font-size: 1.8em;
   line-height: 1.5;
+
 }
 
 .product-detail-price {
@@ -393,6 +396,7 @@ hr {
 
 .buy-now-button {
   background-color: var(--light-blue);
+  width: 200px;
   font-size: 1.6em;
   color: #ffffff;
   padding: 15px;
@@ -421,6 +425,8 @@ hr {
 }
 .comments {
   padding: 30px 15px 15px 0;
+  width: 200px;
+  height: 250px;
 }
 .comments article{
   margin-bottom: 7.5px;
@@ -446,6 +452,10 @@ hr {
   font-size: 1.7em;
 }
 
+.columnacoments{
+  padding: 5px;
+}
+
 /*====== Formularios ======*/
 .form-label {
   display: inline-block;
@@ -455,7 +465,7 @@ hr {
 
 .form-input {
   display: block;
-  width: 100%;
+  width: 200px;
   height: 45px;
   margin-bottom: 15px;
   font-size: 1.5em;

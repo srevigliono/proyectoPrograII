@@ -9,7 +9,8 @@ const productController = {
     ,
     crear:
         function (req ,res) {
-        res.render("product-add", {title: "Agregar productos"})
+            const usuarios = data.usuarios
+        res.render("product-add", {title: "Agregar productos", usuarios})
         }
     
 }

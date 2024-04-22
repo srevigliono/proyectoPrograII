@@ -1,9 +1,76 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+
+.prompt-thin {
+  font-family: "Prompt", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.prompt-thin-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.prompt-extralight {
+  font-family: "Prompt", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.prompt-extralight-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.prompt-light {
+  font-family: "Prompt", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.prompt-light-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
 .prompt-regular {
   font-family: "Prompt", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.prompt-regular-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.prompt-medium {
+  font-family: "Prompt", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.prompt-medium-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.prompt-semibold {
+  font-family: "Prompt", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.prompt-semibold-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 600;
+  font-style: italic;
 }
 
 .prompt-bold {
@@ -12,11 +79,39 @@
   font-style: normal;
 }
 
-.prompt-medium {
+.prompt-bold-italic {
   font-family: "Prompt", sans-serif;
-  font-weight: 500;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.prompt-extrabold {
+  font-family: "Prompt", sans-serif;
+  font-weight: 800;
   font-style: normal;
 }
+
+.prompt-extrabold-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.prompt-black {
+  font-family: "Prompt", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.prompt-black-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+
+
+
 /*====== Variables ======*/
 :root {
   --yellow: #EAC926;

@@ -19,7 +19,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Novedades</h2>
+				<h2 class="products-title prompt-semibold">Novedades</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<%for (let i = 0; i < 8; i++) {%>
@@ -30,9 +30,9 @@
 								<img class="imgIndex" src=<%= productos[i].imagen %>>
 							</figure>
 							<article class="product-box_data">
-								<h2><%= productos[i].nombre %></h2>
-								<p><%= productos[i].descripcion %></p>
-								<p>Comentarios: <%= productos[i].comentarios.length %></p>
+								<h2 class="prompt-semibold"><%= productos[i].nombre %></h2>
+								<p class="prompt-light"><%= productos[i].descripcion %></p>
+								<p class="prompt-light">Comentarios: <%= productos[i].comentarios.length %></p>
 							</article>
 						</a>
 					</section>
@@ -47,7 +47,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Más comentados</h2>
+				<h2 class="products-title prompt-semibold">Más comentados</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<%for (let i = 0; i < 8; i++) {%>
@@ -58,9 +58,9 @@
 								<img class="imgIndex" src=<%= productos[i].imagen %>>
 							</figure>
 							<article class="product-box_data">
-								<h2><%= productos[i].nombre %></h2>
-								<p><%= productos[i].descripcion %></p>
-								<p>Comentarios: <%= productos[i].comentarios.length %></p>
+								<h2 class="prompt-semibold"><%= productos[i].nombre %></h2>
+								<p class="prompt-light"><%= productos[i].descripcion %></p>
+								<p class="prompt-light">Comentarios: <%= productos[i].comentarios.length %></p>
 							</article>
 						</a>
 					</section>

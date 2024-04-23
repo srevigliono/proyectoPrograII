@@ -7,7 +7,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
+			<h2 class="products-title"><%= productos[0].nombre %></h2> 
 			<p class="product-detail-description">
 				<a href="/product/add">Editar</a>
 			</p>
@@ -26,7 +26,7 @@
 							<img src=<%= productos[0].comentarios[i].fotoPerfil %> alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="profile.html"> <%= productos[0].comentarios[i].usuario %> </a> </strong>
+								<strong> <a href="/users/perfil"> <%= productos[0].comentarios[i].usuario %> </a> </strong>
 								<%= productos[0].comentarios[i].coment %></p>
 							</div>
 						</article>

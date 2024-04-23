@@ -43,9 +43,18 @@ body {
 }
 
 body {
-  font-family: var(--base-font-family);
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   font-weight: 300;
   background-color: var(--light-gray);
+}
+
+h2 {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: italic;
 }
 
 ul,
@@ -59,6 +68,11 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: white; /* Cambia el color al pasar el ratón */
 }
 
 figure {

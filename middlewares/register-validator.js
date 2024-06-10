@@ -36,6 +36,7 @@ const registerValidation = [
         .isLength({ min: 5 }),
 
     body('foto')
+        .notEmpty()
         .withMessage('Comlpetar el campo con foto de perfil'),
 
 ]

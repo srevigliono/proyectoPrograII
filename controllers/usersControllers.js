@@ -1,4 +1,4 @@
-const data = require("../db/dataBase");
+const data = require("../database/models");
 
 const usersController = {
 

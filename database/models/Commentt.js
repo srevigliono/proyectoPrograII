@@ -1,5 +1,5 @@
 module.exports = function (sequelize,dataTypes){
-   const alias = "Comment"
+   const alias = "Commentt"
 
    const cols = {
     id: {
@@ -22,12 +22,12 @@ module.exports = function (sequelize,dataTypes){
  };
 
  const config = {
-    tableName:'comentario',
+    tableName:'comentarios',
     timestamps: true,
     underscored: true
  };
  
- const Comentario = sequelize.define(alias, cols, config);
+ const Commentt = sequelize.define(alias, cols, config);
 
  Commentt.associate = function(models) {
         
@@ -42,6 +42,6 @@ module.exports = function (sequelize,dataTypes){
     });
 }
 
- return Comentario;
+ return Commentt;
 
 }

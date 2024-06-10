@@ -33,8 +33,6 @@ const usersController = {
 
     },
 
-
-
     perfil:
         function (req, res, next) {
             const usuarios = data.usuarios

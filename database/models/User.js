@@ -40,3 +40,4 @@ module.exports = function (sequelize,dataTypes){
     return User;
 };
 
+const hola = hola;

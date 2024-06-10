@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 15-04-2024 a las 21:28:11
+-- Tiempo de generación: 10-06-2024 a las 18:24:36
 -- Versión del servidor: 5.7.39
 -- Versión de PHP: 7.4.33
 
@@ -20,7 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyectoIntegrador`
 --
-DROP DATABASE IF EXISTS `proyectoIntegrador`;
 CREATE DATABASE IF NOT EXISTS `proyectoIntegrador` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `proyectoIntegrador`;
 
@@ -33,9 +32,9 @@ USE `proyectoIntegrador`;
 CREATE TABLE `comentarios` (
   `id` int(10) UNSIGNED NOT NULL,
   `comentario` varchar(150) NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deletedAt` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `producto_id` int(10) UNSIGNED DEFAULT NULL,
   `usuario_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -44,7 +43,7 @@ CREATE TABLE `comentarios` (
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`id`, `comentario`, `createdAt`, `updatedAt`, `deletedAt`, `producto_id`, `usuario_id`) VALUES
+INSERT INTO `comentarios` (`id`, `comentario`, `created_at`, `updated_at`, `deleted_at`, `producto_id`, `usuario_id`) VALUES
 (1, 'aaaaaaaaa', '2024-04-15 21:23:41', '2024-04-15 21:23:41', NULL, 1, 1),
 (2, 'aaaaaaaaa', '2024-04-15 21:23:41', '2024-04-15 21:23:41', NULL, 1, 2),
 (3, 'aaaaaaaaa', '2024-04-15 21:23:41', '2024-04-15 21:23:41', NULL, 1, 3),
@@ -72,9 +71,9 @@ CREATE TABLE `productos` (
   `imagen` varchar(100) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `descripcion` varchar(500) NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deletedAt` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `usuario_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -82,7 +81,7 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `imagen`, `nombre`, `descripcion`, `createdAt`, `updatedAt`, `deletedAt`, `usuario_id`) VALUES
+INSERT INTO `productos` (`id`, `imagen`, `nombre`, `descripcion`, `created_at`, `updated_at`, `deleted_at`, `usuario_id`) VALUES
 (1, 'pepe.jpg', 'pepe', 'hadowiodiosioe', '2024-04-15 21:17:36', '2024-04-15 21:17:36', NULL, 6),
 (2, 'santi.jpg', 'ueueu', 'isisisis', '2024-04-15 21:20:36', '2024-04-15 21:20:36', NULL, 6),
 (3, 'hola.jpg', 'hola', 'aaaaa', '2024-04-15 21:20:36', '2024-04-15 21:20:36', NULL, 5),
@@ -107,16 +106,16 @@ CREATE TABLE `usuarios` (
   `fecha` date DEFAULT NULL,
   `dni` int(11) DEFAULT NULL,
   `foto` varchar(500) DEFAULT NULL,
-  `creatAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deletedAt` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `email`, `password`, `fecha`, `dni`, `foto`, `creatAt`, `updatedAt`, `deletedAt`) VALUES
+INSERT INTO `usuarios` (`id`, `email`, `password`, `fecha`, `dni`, `foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'slega@gmail.com', '12345', '2024-04-15', 46028252, 'foto.png', '2024-04-15 18:00:22', '2024-04-15 18:00:22', NULL),
 (2, 'srevi@gmail.com', '12345', '2022-04-15', 46032293, 'foto1.png', '2024-04-15 18:14:50', '2024-04-15 18:14:50', NULL),
 (3, 'srevi@gmail.com', '12345', '2022-04-15', 46032293, 'foto1.png', '2024-04-15 18:15:42', '2024-04-15 18:15:42', NULL),
@@ -157,7 +156,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`

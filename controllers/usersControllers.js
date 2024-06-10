@@ -1,3 +1,4 @@
+const { where } = require("sequelize");
 const db = require("../database/models");
 const op = db.Sequelize.Op;
 const users = db.User;
@@ -66,6 +67,12 @@ const usersController = {
                 console.log("Error al grabar el usuario", err);
             });
 
+    },
+
+    logout: function(req,res){
+        req.session.destroy();
+         res.clearCookie('userId');
+        return res.redirect('/')
     },
 
     perfil:

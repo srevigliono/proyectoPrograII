@@ -16,6 +16,15 @@ const usersController = {
         },
 
     store: function (req, res) {
+        const validationErrors = validationResult(req);
+        console.log('validationErrors : ', validationErrors)
+        if (validationErrors.errors.length > 0) {
+            return res.render('register', {
+                errors: validationErrors.mapped(),
+                oldData: req.body
+            })
+        }
+
         const user = {
             name: req.body.name,
             email: req.body.email,

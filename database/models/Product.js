@@ -16,7 +16,7 @@ module.exports = function (sequelize,dataTypes){
             type: dataTypes.STRING(100),
         },
 
-        descripccion: {
+        descripcion: {
             type: dataTypes.STRING(500),
         },
 

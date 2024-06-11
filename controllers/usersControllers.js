@@ -1,4 +1,5 @@
 const { where } = require("sequelize");
+const { validationResult } = require('express-validator');
 const db = require("../database/models");
 const op = db.Sequelize.Op;
 const users = db.User;
@@ -10,13 +11,29 @@ const usersController = {
         //obtenemos los restultados de las validaciones 
         const validationErrors = validationResult(req);
         console.log('validationErrors : ', validationErrors)      
-        // preguntamos si hay errores y si los hay los enviamos a la vista, junto con lo q venia en el body         
+        
         if(validationErrors.errors.length > 0){
             return res.render('login', {
                 errors: validationErrors.mapped(),
                 oldData:req.body
             })
         }
+        //CHEQUEAR ESTO
+        //CHEQUEAR ESTO
+        //CHEQUEAR ESTO
+        //CHEQUEAR ESTO
+
+        if (!req.body.email) {
+            return res.render('login', {
+                errors: { email: { msg: 'El campo de email es requerido' } },
+                oldData: req.body
+            });
+        }
+
+        //CHEQUEAR ESTO
+        //CHEQUEAR ESTO
+        //CHEQUEAR ESTO
+        //CHEQUEAR ESTO
 
 
         // Buscamos el usuario que se quiere loguear.
@@ -52,13 +69,19 @@ const usersController = {
             })
         }
 
-        const user = {
+        /* const user = {
             name: req.body.name,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10)
         };
-
-        users
+ */
+        db.User.create({
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10),
+            dni: req.body.dni,
+            foto: req.body.foto,
+            fecha: req.body.fecha
+        })
             .create(user)
             .then(function (user) {
                 return res.redirect("/login");

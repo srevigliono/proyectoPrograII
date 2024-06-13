@@ -10,7 +10,6 @@ const registerValidation = [
         .isEmail()
         .withMessage('Debes escribir un formato de correo valido')
         .custom(function (value, { req }) {
-            console.log('value: ', value);
             return db.User.findOne({
                 where: { email: value }
             })
@@ -21,23 +20,24 @@ const registerValidation = [
                 })
         }),
 
+    body('usuario')
+        .notEmpty()
+        .withMessage('Comlpetar el campo de Contraseña'),
+
     body('password')
         .notEmpty()
         .withMessage('Comlpetar el campo de Contraseña')
         .isLength({ min: 5 }),
 
     body('fecha')
-        .notEmpty()
-        .withMessage('Comlpetar el campo con fecha de nacimiento'),
+        .optional(),
 
     body('dni')
-        .notEmpty()
-        .withMessage('Comlpetar el campo con dni')
-        .isLength({ min: 5 }),
+        .optional(),
+        
 
     body('foto')
-        .notEmpty()
-        .withMessage('Comlpetar el campo con foto de perfil'),
+        .optional()
 
 ]
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 10-06-2024 a las 18:24:36
+-- Tiempo de generación: 13-06-2024 a las 19:08:37
 -- Versión del servidor: 5.7.39
 -- Versión de PHP: 7.4.33
 
@@ -29,6 +29,7 @@ USE `proyectoIntegrador`;
 -- Estructura de tabla para la tabla `comentarios`
 --
 
+DROP TABLE IF EXISTS `comentarios`;
 CREATE TABLE `comentarios` (
   `id` int(10) UNSIGNED NOT NULL,
   `comentario` varchar(150) NOT NULL,
@@ -66,6 +67,7 @@ INSERT INTO `comentarios` (`id`, `comentario`, `created_at`, `updated_at`, `dele
 -- Estructura de tabla para la tabla `productos`
 --
 
+DROP TABLE IF EXISTS `productos`;
 CREATE TABLE `productos` (
   `id` int(10) UNSIGNED NOT NULL,
   `imagen` varchar(100) NOT NULL,
@@ -99,6 +101,7 @@ INSERT INTO `productos` (`id`, `imagen`, `nombre`, `descripcion`, `created_at`, 
 -- Estructura de tabla para la tabla `usuarios`
 --
 
+DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
   `id` int(10) UNSIGNED NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -108,20 +111,21 @@ CREATE TABLE `usuarios` (
   `foto` varchar(500) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `deleted_at` timestamp NULL DEFAULT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `user` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `email`, `password`, `fecha`, `dni`, `foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'slega@gmail.com', '12345', '2024-04-15', 46028252, 'foto.png', '2024-04-15 18:00:22', '2024-04-15 18:00:22', NULL),
-(2, 'srevi@gmail.com', '12345', '2022-04-15', 46032293, 'foto1.png', '2024-04-15 18:14:50', '2024-04-15 18:14:50', NULL),
-(3, 'srevi@gmail.com', '12345', '2022-04-15', 46032293, 'foto1.png', '2024-04-15 18:15:42', '2024-04-15 18:15:42', NULL),
-(4, 'minda@gmail.com', '12345', '2022-02-21', 54387234, 'foto2.png', '2024-04-15 18:15:42', '2024-04-15 18:15:42', NULL),
-(5, 'srevi@gmail.com', '12345', '2022-04-15', 46032293, 'foto1.png', '2024-04-15 18:16:20', '2024-04-15 18:16:20', NULL),
-(6, 'minda@gmail.com', '12345', '2022-02-21', 54387234, 'foto2.png', '2024-04-15 18:16:20', '2024-04-15 18:16:20', NULL);
+INSERT INTO `usuarios` (`id`, `email`, `password`, `fecha`, `dni`, `foto`, `created_at`, `updated_at`, `deleted_at`, `user`) VALUES
+(1, 'slega@gmail.com', '12345', '2024-04-15', 46028252, 'foto.png', '2024-04-15 18:00:22', '2024-04-15 18:00:22', NULL, ''),
+(2, 'srevi@gmail.com', '12345', '2022-04-15', 46032293, 'foto1.png', '2024-04-15 18:14:50', '2024-04-15 18:14:50', NULL, ''),
+(3, 'srevi@gmail.com', '12345', '2022-04-15', 46032293, 'foto1.png', '2024-04-15 18:15:42', '2024-04-15 18:15:42', NULL, ''),
+(4, 'minda@gmail.com', '12345', '2022-02-21', 54387234, 'foto2.png', '2024-04-15 18:15:42', '2024-04-15 18:15:42', NULL, ''),
+(5, 'srevi@gmail.com', '12345', '2022-04-15', 46032293, 'foto1.png', '2024-04-15 18:16:20', '2024-04-15 18:16:20', NULL, ''),
+(6, 'minda@gmail.com', '12345', '2022-02-21', 54387234, 'foto2.png', '2024-04-15 18:16:20', '2024-04-15 18:16:20', NULL, '');
 
 --
 -- Índices para tablas volcadas

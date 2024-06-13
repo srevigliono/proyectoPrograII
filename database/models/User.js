@@ -28,6 +28,10 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.STRING(500),
         },
 
+        user:{
+            type: dataTypes.STRING(50)
+        }
+
     };
 
     const config = {

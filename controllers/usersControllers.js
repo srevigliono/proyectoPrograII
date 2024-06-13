@@ -4,6 +4,7 @@ const db = require("../database/models");
 const op = db.Sequelize.Op;
 const users = db.User;
 const bcrypt = require('bcryptjs');
+const { User } = require('../database/models');
 
 const usersController = {
 
@@ -54,43 +55,40 @@ const usersController = {
         })
     },
 
-    register:
-        function (req, res, next) {
-            return res.render("register", { title: "Regístrate" })
-        },
+    register: function (req, res, next) {
+        return res.render("register", { title: "Regístrate" });
+    },
 
     store: function (req, res) {
         const validationErrors = validationResult(req);
-        console.log('validationErrors : ', validationErrors)
-        if (validationErrors.errors.length > 0) {
-            return res.render('register', {
-                errors: validationErrors.mapped(),
-                oldData: req.body
-            })
+        console.log('validationErrors : ', validationErrors);
+
+        if (errors.isEmpty()) {
+            const user = {
+                name: req.body.name,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                dni: req.body.dni,
+                foto: req.body.foto,
+                fecha: req.body.fecha
+            };
+
+            db.User.create(user)
+                .then(function (user) {
+                    return res.redirect("/users/login");
+                })
+                .catch(function (err) {
+                    console.log("Error al grabar el usuario", err);
+                    return res.render('register', {
+                        errors: { database: { msg: 'Error al guardar el usuario en la base de datos' } },
+                        oldData: req.body
+                    });
+                })
         }
-
-        /* const user = {
-            name: req.body.name,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10)
-        };
- */
-        db.User.create({
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            dni: req.body.dni,
-            foto: req.body.foto,
-            fecha: req.body.fecha
-        })
-            .create(user)
-            .then(function (user) {
-                return res.redirect("/login");
-            })
-            .catch(function (err) {
-                console.log("Error al grabar el usuario", err);
-            });
-
-    },
+        else {
+            return res.render('Register', {title: "Register", errors: errors.mapped(), oldData: req.body });        
+        }
+    },  
 
     logout: function(req,res){
         req.session.destroy();

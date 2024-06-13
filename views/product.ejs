@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-		<!-- Includes-->
-		<%- include('./partials/head.ejs') %>
-		<%- include('./partials/header.ejs') %>
+	
+    <header>
+		<% if (locals.user != undefined) { %>
+			<%- include("./partials/headerLogueado") %>
+		<% } else { %>
+			<%- include("./partials/header") %>
+		<% } %>
+		</header>
 		
 	<!-- product detail -->
 	<div class="container products-wrapper">

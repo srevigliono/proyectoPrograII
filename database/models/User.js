@@ -1,4 +1,4 @@
-module.exports = function (sequelize,dataTypes){
+module.exports = function (sequelize, dataTypes){
     const alias = "User"
 
     const cols = {

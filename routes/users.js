@@ -9,9 +9,11 @@ router.post('/', loginValidations, usersController.login);
 
 
 router.get("/registrate",usersController.register );
-router.post("/", registerValidation, usersController.store );
+router.post("/registrate", registerValidation, usersController.store );
 
 router.get("/perfil",usersController.perfil);
 router.get("/profile-edit",usersController.editarPerfil);
+
+router.post('/logout', usersController.logout);
 
 module.exports = router;

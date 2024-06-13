@@ -19,21 +19,29 @@
 			
 					<div >
 						<label for="email">Usuario: </label>
-						<input id="email" type="email" name="email" required>
-					</div>
+						<input id="email" type="email" name="email" required
+						value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
+					
+					<% if (locals.email && errors.email) { %>
+					<div class="error-msg">
+						<%= errors.email.msg %>                                                        </div>                            
+					<% } %>
+					<div>
 					
 					<div>
-						<label for="contraseña">Contraseña: </label>
-						<input id="contraseña" type="password" name="contraseña" required>
-					</div>
+						<label for="password">Contraseña: </label>
+						<input id="password" type="password" name="password" required
+						value="<%= locals.oldData && oldData.password ? oldData.password : null %>">
+					
+					<% if (locals.errors && errors.password) { %>
+                    <div class="error-msg">
+                        <%= errors.password.msg %>                                                        </div>                            
+                    <% } %>
 					<div>
 						<label> Recordar información de incio sesión:</label>
 						<input type="checkbox" name="recordar" value="si"> 
-					</div>
-					
-			
-		
-							<button type="iniciar sesión" href="/users/perfil">Iniciar sesión</button></p>
+					</div>	
+						<button type="iniciar sesión" href="/">Iniciar sesión</button></p>
 					</form>
 			</h2>
 

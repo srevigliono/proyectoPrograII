@@ -5,7 +5,7 @@ const loginValidations = require('../middlewares/login-validator');
 const registerValidation = require('../middlewares/register-validator');
 
 router.get("/login", usersController.login);
-router.post('/', loginValidations, usersController.login);
+router.post('/login', loginValidations, usersController.login);
 
 
 router.get("/registrate",usersController.register );

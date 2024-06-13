@@ -6,20 +6,15 @@ const bcrypt = require('bcryptjs');
 const usersController = {
 
     login: function (req, res) {
-        //obtenemos los restultados de las validaciones 
-        const validationErrors = validationResult(req);
-        console.log('validationErrors : ', validationErrors)
 
-        if (validationErrors.errors.length > 0) {
+        const validationErrors = validationResult(req);
+
+        if (!validationErrors.isEmpty()) {
             return res.render('login', {
-                errors: validationErrors.mapped(),
+                errors: validationErrors.array(),
                 oldData: req.body
             })
         }
-        //CHEQUEAR ESTO
-        //CHEQUEAR ESTO
-        //CHEQUEAR ESTO
-        //CHEQUEAR ESTO
 
         if (!req.body.email) {
             return res.render('login', {
@@ -28,28 +23,34 @@ const usersController = {
             });
         }
 
-        //CHEQUEAR ESTO
-        //CHEQUEAR ESTO
-        //CHEQUEAR ESTO
-        //CHEQUEAR ESTO
 
 
         // Buscamos el usuario que se quiere loguear.
         db.User.findOne({
             where: [{ email: req.body.email }]
+        }) .then(user => {
+            if (!user || !bcrypt.compareSync(req.body.password, user.password)) {
+                return res.render('login', {
+                    errors: [{ msg: 'Usuario y/o contraseña incorrectos' }],
+                    oldData: req.body
+                });
+            }
+
+            req.session.user = {
+                id: user.id,
+                name: user.name,
+                email: user.email
+            };
+
+            res.redirect('/');
         })
-            .then(function (user) {
-                //Seteamos la session con la info del usuario
-                req.session.user = user;
-                //Si tildó recordame => creamos la cookie.
-                if (req.body.rememberme != undefined) {
-                    res.cookie('userId', user.id, { maxAge: 1000 * 60 * 100 })
-                }
-                return res.redirect('/');
-            })
-            .catch(function (e) {
-                console.log(e)
-            })
+        .catch(error => {
+            console.log(error);
+            return res.render('login', {
+                errors: [{ msg: 'Error al iniciar sesión' }],
+                oldData: req.body
+            });
+        });
     },
 
     register: function (req, res, next) {

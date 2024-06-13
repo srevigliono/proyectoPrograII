@@ -9,13 +9,12 @@ const loginValidations = [
         .isEmail()
         .withMessage('Debes escribir un formato de correo valido')
         .custom(function (value, { req }) {
-            console.log('value: ', value);
+
             return db.User.findOne({
                 where: { email: value }
-            })
-                .then(function (userToLogin) {
+            }).then(function (userToLogin) {
                     if (!userToLogin) {
-                        throw new Error("El usuario no esta registrado")
+                        return Promise.reject('El usuario no está registrado');
                     }
                 })
         }),
@@ -30,9 +29,9 @@ const loginValidations = [
                 .then(function (user) {
                     if (user) {
                         const password = user.password
-                        const passwordOk = bcrypt.compareSync(value, password)
+                        const passwordOk = bcrypt.compareSync(value, user.password)
                         if (!passwordOk) {
-                            throw new Error("La contraseña es incorreta perro")
+                            return Promise.reject('La contraseña es incorrecta');
                         }
                     }
                 })

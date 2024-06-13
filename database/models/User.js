@@ -40,18 +40,18 @@ module.exports = function (sequelize, dataTypes){
         underscored: true
     };
 
-    const User = sequelize.define(alias,cols,config);
+    const User = sequelize.define(alias, cols, config);
 
-    User.associate = function (associations) {
-        User.hasMany(associations.Comentt, {
+    User.associate = function (models) {
+        User.hasMany(models.Commentt, {
             as:"comments",
-            foreignKey: usuario_id
-        })
-        User.hasMany(associations.Product, {
+            foreignKey: 'usuario_d'
+        });
+        User.hasMany(models.Product, {
             as:"products",
-            foreignKey: usuario_id
-        })
-    }
+            foreignKey: 'usuario_id'
+        });
+    };
     
     return User;
 };

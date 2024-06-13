@@ -31,7 +31,7 @@ const loginValidations = [
                         const password = user.password
                         const passwordOk = bcrypt.compareSync(value, user.password)
                         if (!passwordOk) {
-                            return Promise.reject('La contraseña es incorrecta');
+                            return Promise.reject('El usuario no está registrado');
                         }
                     }
                 })

@@ -36,13 +36,13 @@ const usersController = {
                 });
             }
 
-            req.session.user = {
-                id: user.id,
-                name: user.name,
-                email: user.email
-            };
+        req.session.user = {
+            id: user.id,
+            name: user.name,
+            email: user.email
+        };
 
-            res.redirect('/');
+        res.redirect('/');
         })
         .catch(error => {
             console.log(error);

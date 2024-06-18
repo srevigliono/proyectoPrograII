@@ -5,54 +5,6 @@ const bcrypt = require('bcryptjs');
 
 const usersController = {
 
-    login: function (req, res) {
-
-        const validationErrors = validationResult(req);
-
-        if (!validationErrors.isEmpty()) {
-            return res.render('login', {
-                errors: validationErrors.array(),
-                oldData: req.body
-            })
-        }
-
-        if (!req.body.email) {
-            return res.render('login', {
-                errors: { email: { msg: 'El campo de email es requerido' } },
-                oldData: req.body
-            });
-        }
-
-
-
-        // Buscamos el usuario que se quiere loguear.
-        db.User.findOne({
-            where: [{ email: req.body.email }]
-        }) .then(user => {
-            if (!user || !bcrypt.compareSync(req.body.password, user.password)) {
-                return res.render('login', {
-                    errors: [{ msg: 'Usuario y/o contraseña incorrectos' }],
-                    oldData: req.body
-                });
-            }
-
-        req.session.user = {
-            id: user.id,
-            name: user.name,
-            email: user.email
-        };
-
-        res.redirect('/');
-        })
-        .catch(error => {
-            console.log(error);
-            return res.render('login', {
-                errors: [{ msg: 'Error al iniciar sesión' }],
-                oldData: req.body
-            });
-        });
-    },
-
     register: function (req, res, next) {
         return res.render("register", { title: "Regístrate" });
     },
@@ -90,9 +42,44 @@ const usersController = {
         }
     },
 
+    login: function (req, res) {
+        return res.render("login");
+    },
+
+    logstore: function (req, res) {
+
+        const validationErrors = validationResult(req);
+
+        if (!validationErrors.isEmpty()) {
+            return res.render('login', {
+                errors: validationErrors.mapped(),
+                oldData: req.body
+            })
+        }
+
+        db.User.findOne({
+            where: [{ email: req.body.email }]
+        }) 
+        .then(user => {
+            req.session.user = user;
+            if(req.body.rememberme != undefined){
+                res.cookie('usuario_id', user.id, { maxAge: 1000 * 60 * 100})
+            }
+            return res.redirect('/');
+
+        })
+        .catch(error => {
+            console.log(error);
+            return res.render('login', {
+                errors: [{ msg: 'Error al iniciar sesión' }],
+                oldData: req.body
+            });
+        });
+    },
+
     logout: function (req, res) {
         req.session.destroy();
-        res.clearCookie('userId');
+        res.clearCookie('usuario_id');
         return res.redirect('/')
     },
 

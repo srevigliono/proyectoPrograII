@@ -12,33 +12,31 @@
 			<div class="col-12">
 				<h2 class="products-title prompt-semibold">Ingresar</h2>
 			</div>
-			<!-- Show the "ultimos" products -->
+
 			<h2 class="col-12"> <i>
 
-				<form action="/users/login" method="post" class="prompt-light">
+				<form action="/users/login" method="POST" class="prompt-light">
 					<label for="email">Email: </label>
-					<input id="email" type="email" name="email" 
-					value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
+					<input id="email" type="email" name="email">
 					
-					<% if (locals.email && errors.email) { %>
+					<% if (locals.errors && errors.email) { %>
 						<p><%= errors.email.msg %></p>					
 					<% } %>
 					
 					<label for="password">Contraseña: </label>
-					<input id="password" type="password" name="password" 
-					value="<%= locals.oldData && oldData.password ? oldData.password : null %>">
+					<input id="password" type="password" name="password">
 					
 					<% if (locals.errors && errors.password) { %>
                         <%= errors.password.msg %>                                                                             
                     <% } %>
-
-
+					
 					<div>
 						<label> Recordar información de incio sesión:</label>
 						<input type="checkbox" name="recordar" value="si"> 
 					</div>	
 						<button type="iniciar sesión" href="/">Iniciar sesión</button></p>
 					</form>
+					
 			</h2>
 
 		

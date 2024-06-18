@@ -22,9 +22,8 @@
 				</div>
 				<div>
 					<ul class="">
-						<li>8 productos</li>
-						<li>200 seguidores</li>
-						<li>300 comentarios</li>
+						<li><%= usuarios.products.length %></li>
+						<li><%= usuarios.comments.length %></li>
 					</ul>
 				</div>
 			</div>
@@ -39,7 +38,35 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
-			
+			<div class="container products-wrapper">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="products-title prompt-semibold">Novedades</h2>
+					</div>
+					<% if (productos && usuarios.products.length > 0) { %> <!-- Verificación agregada -->
+						<% for (let i = 0; i < usuarios.products.length && i < 8; i++) { %>
+							<div class="col-12 col-sm-6 col-lg-3">
+								<section class="product-box">
+									<a href="/product/detail">
+										<figure class="product-box_image">
+											<img class="imgIndex" src="<%= usuarios.products[i].imagen %>" alt="<%= usuarios.products[i].nombre %>">
+										</figure>
+										<article class="product-box_data">
+											<h2 class="prompt-semibold"><%= usuarios.products[i].nombre %></h2>
+											<p class="prompt-light"><%= usuarios.products[i].descripcion %></p>
+											<p class="prompt-light">Comentarios: <%= usuarios.products[i].comments.length %></p>
+										</article>
+									</a>
+								</section>
+							</div>
+						<% } %>
+					<% } else { %> <!-- Mensaje alternativo si no hay productos -->
+						<div class="col-12">
+							<p>No hay productos disponibles</p>
+						</div>
+					<% } %>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- /Mis productos -->

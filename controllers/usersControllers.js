@@ -98,13 +98,13 @@ const usersController = {
 
     perfil:
         function (req, res, next) {
-            const usuarios = data.usuarios
+            const usuarios = oldData.usuarios
             res.render("profile", { title: "Perfil", usuarios })
         },
 
     editarPerfil:
         function (req, res, next) {
-            const usuarios = data.usuarios
+            const usuarios = oldData.usuarios
             res.render("profile-edit", { title: "Editar perfil", usuarios })
         },
 

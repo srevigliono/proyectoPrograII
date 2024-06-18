@@ -35,7 +35,7 @@
                                 <article class="product-box_data">
                                     <h2 class="prompt-semibold"><%= productos[i].nombre %></h2>
                                     <p class="prompt-light"><%= productos[i].descripcion %></p>
-                                    <p class="prompt-light">Comentarios: <%= productos[i].comentarios.length %></p>
+                                    <p class="prompt-light">Comentarios: <%= productos[i].comments.length %></p>
                                 </article>
                             </a>
                         </section>
@@ -56,7 +56,10 @@
             <div class="col-12">
                 <h2 class="products-title prompt-semibold">Más comentados</h2>
             </div>
-            <% if (productos && productos.length > 0) { %> <!-- Verificación agregada -->
+            <% if (productos && productos.length > 0) { %>
+                <!-- Ordenamos de menor a mayor los mas comentados -->
+                <% productos.sort((a, b) => b.comments.length - a.comments.length); %>
+                
                 <% for (let i = 0; i < productos.length && i < 8; i++) { %>
                     <div class="col-12 col-sm-6 col-lg-3">
                         <section class="product-box">
@@ -73,14 +76,13 @@
                         </section>
                     </div>
                 <% } %>
-            <% } else { %> <!-- Mensaje alternativo si no hay productos -->
+            <% } else { %>
                 <div class="col-12">
                     <p>No hay productos disponibles</p>
                 </div>
             <% } %>
         </div>
     </div>
-    <!-- /Más comentados -->
 
     <footer>
         <%- include('./partials/footer.ejs') %>

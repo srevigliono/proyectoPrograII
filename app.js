@@ -42,14 +42,14 @@ app.use(function (req, res, next) {
 });
 
 app.use(function(req, res, next) {
-  if (req.cookies.usuario_id != undefined && req.session.user == undefined) {
-      let id = req.cookies.usuario_id;
+  if (req.cookies.usuario_id !== undefined && req.session.user === undefined) {
+      let cookieId = req.cookies.usuario_id;
 
-      db.User.findByPk(id)
-      .then(function(result) {
+      db.User.findByPk(cookieId)
+      .then(function(user) {
 
-        req.session.user = result;
-        res.locals.user = result;
+        req.session.user = user;
+        res.locals.user = user;
 
         return next(); 
       })
@@ -58,7 +58,7 @@ app.use(function(req, res, next) {
       });
   } 
   else {
-    return next()
+    return next();
   }
 });
 

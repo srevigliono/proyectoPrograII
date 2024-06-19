@@ -25,7 +25,7 @@ const usersController = {
 
 
             db.User.create(usuarioCreado)
-                .then(function (usuarioCreado) {
+                .then(function (creado) {
                     return res.redirect("/users/login");
                 })
                 .catch(function (err) {
@@ -61,12 +61,16 @@ const usersController = {
             where: [{ email: req.body.email }]
         })
             .then(user => {
-                req.session.user = user;
-                if (req.body.rememberme != undefined) {
-                    res.cookie('usuario_id', user.id, { maxAge: 1000 * 60 * 100 })
-                }
-                return res.redirect('/');
+                encryptedpPassword = user.password;
+                const check = bcrypt.compareSync(req.body.password, encryptedpPassword)
 
+                if (check) {
+                    req.session.user = user;
+                    if (req.body.rememberme != undefined) {
+                        res.cookie('usuario_id', user.id, { maxAge: 1000 * 60 * 100 })
+                    }
+                    return res.redirect('/');
+                }
             })
             .catch(error => {
                 console.log(error);

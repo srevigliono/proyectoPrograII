@@ -15,9 +15,9 @@
 
 			<h2 class="col-12"> <i>
 
-				<form action="/users/login" method="POST" class="prompt-light">
+				<form action="/users/login" method="POST" class="prompt-light" novalidate>
 					<label for="email">Email: </label>
-					<input id="email" type="email" name="email">
+					<input id="email" type="email" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
 					
 					<% if (locals.errors && errors.email) { %>
 						<p><%= errors.email.msg %></p>					
@@ -36,7 +36,7 @@
 					</div>	
 						<button type="iniciar sesión" href="/">Iniciar sesión</button></p>
 					</form>
-					
+
 			</h2>
 
 		

@@ -9,11 +9,11 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src= <%= usuarios.foto %> alt="foto de perfil" class="foto-perfil">
+				<img src= <%= user.foto %> alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"> <%= usuarios.usuario %>
+					<h1 class="main-title"> <%= user.user %>
 						<a href="/users/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -22,8 +22,8 @@
 				</div>
 				<div>
 					<ul class="">
-						<li><%= usuarios.products.length %></li>
-						<li><%= usuarios.comments.length %></li>
+						<li><%= user.products.length %></li>
+						<li><%= user.comments.length %></li>
 					</ul>
 				</div>
 			</div>
@@ -43,18 +43,17 @@
 					<div class="col-12">
 						<h2 class="products-title prompt-semibold">Novedades</h2>
 					</div>
-					<% if (productos && usuarios.products.length > 0) { %> <!-- Verificación agregada -->
-						<% for (let i = 0; i < usuarios.products.length && i < 8; i++) { %>
+					<% if (products && user.products.length > 0) { %> <!-- Verificación agregada -->
+						<% for (let i = 0; i < user.products.length && i < 4; i++) { %>
 							<div class="col-12 col-sm-6 col-lg-3">
 								<section class="product-box">
 									<a href="/product/detail">
 										<figure class="product-box_image">
-											<img class="imgIndex" src="<%= usuarios.products[i].imagen %>" alt="<%= usuarios.products[i].nombre %>">
+											<img class="imgIndex" src="<%= user.products[i].imagen %>" alt="<%= user.products[i].nombre %>">
 										</figure>
 										<article class="product-box_data">
-											<h2 class="prompt-semibold"><%= usuarios.products[i].nombre %></h2>
-											<p class="prompt-light"><%= usuarios.products[i].descripcion %></p>
-											<p class="prompt-light">Comentarios: <%= usuarios.products[i].comments.length %></p>
+											<h2 class="prompt-semibold"><%= user.products[i].user %></h2>
+											<p class="prompt-light">Comentarios: <%= user.products[i].comments.length %></p>
 										</article>
 									</a>
 								</section>

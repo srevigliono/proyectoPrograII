@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 const session = require("express-session")
 
 var indexRouter = require('./routes/index');
@@ -40,6 +39,27 @@ app.use(function (req, res, next) {
     res.locals.user = req.session.user;
   }
   return next();
+});
+
+app.use(function(req, res, next) {
+  if (req.cookies.usuario_id != undefined && req.session.user == undefined) {
+      let id = req.cookies.usuario_id;
+
+      db.User.findByPk(id)
+      .then(function(result) {
+
+        req.session.user = result;
+        res.locals.user = result;
+
+        return next(); 
+      })
+      .catch(function(err) {
+        return console.log(err); ; 
+      });
+  } 
+  else {
+    return next()
+  }
 });
 
 // catch 404 and forward to error handler

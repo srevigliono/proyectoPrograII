@@ -22,7 +22,7 @@ const usersController = {
                 foto: req.body.foto,
                 fecha: req.body.fecha
             };
- 
+
 
             db.User.create(usuarioCreado)
                 .then(function (usuarioCreado) {
@@ -55,26 +55,26 @@ const usersController = {
                 errors: validationErrors.mapped(),
                 oldData: req.body
             })
-        }
+        };
 
         db.User.findOne({
             where: [{ email: req.body.email }]
-        }) 
-        .then(user => {
-            req.session.user = user;
-            if(req.body.rememberme != undefined){
-                res.cookie('usuario_id', user.id, { maxAge: 1000 * 60 * 100})
-            }
-            return res.redirect('/');
-
         })
-        .catch(error => {
-            console.log(error);
-            return res.render('login', {
-                errors: [{ msg: 'Error al iniciar sesión' }],
-                oldData: req.body
+            .then(user => {
+                req.session.user = user;
+                if (req.body.rememberme != undefined) {
+                    res.cookie('usuario_id', user.id, { maxAge: 1000 * 60 * 100 })
+                }
+                return res.redirect('/');
+
+            })
+            .catch(error => {
+                console.log(error);
+                return res.render('login', {
+                    errors: [{ msg: 'Error al iniciar sesión' }],
+                    oldData: req.body
+                });
             });
-        });
     },
 
     logout: function (req, res) {
@@ -83,11 +83,20 @@ const usersController = {
         return res.redirect('/')
     },
 
-    perfil:
-        function (req, res, next) {
-            const usuarios = oldData.usuarios
-            res.render("profile", { title: "Perfil", usuarios })
-        },
+    perfil: function (req, res, next) {
+        const id = req.params.id;
+
+        db.User.findByPk(id, {
+            include: [{association: "products"}, {association: "comments"}],
+        })
+            .then(function (results) {
+                console.log("DATA USUARIO POR ID: ", JSON.stringify(results, null, 4));
+                const condition = false;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    },
 
     editarPerfil:
         function (req, res, next) {

@@ -1,4 +1,4 @@
-const { body } = require('express-validator')
+const { body } = require('express-validator');
 const db = require('../database/models');
 const bcrypt = require('bcryptjs');
 
@@ -12,7 +12,8 @@ const loginValidations = [
 
             return db.User.findOne({
                 where: { email: value }
-            }).then(function (userToLogin) {
+            })
+            .then(function (userToLogin) {
                     if (!userToLogin) {
                         throw new Error('El email no está registrado');
                     }
@@ -25,14 +26,14 @@ const loginValidations = [
             return db.User.findOne({
                 where: { email: req.body.email }
             })
-                .then(function (user) {
-                    if (user) {
-                        const passwordOk = bcrypt.compareSync(value, user.password);
-                        if (!passwordOk) {
-                            throw new Error('El email o la contraseña son incorrectas');
-                        }
+            .then(function (user) {
+                if (user) {
+                    const passwordOk = bcrypt.compareSync(value, user.password);
+                    if (!passwordOk) {
+                        throw new Error('El email o la contraseña son incorrectas');
                     }
-                })
+                }
+            });
         })
 ]
 

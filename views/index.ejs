@@ -28,14 +28,15 @@
                 <% for (let i = 0; i < productos.length && i < 8; i++) { %>
                     <div class="col-12 col-sm-6 col-lg-3">
                         <section class="product-box">
-                            <a href="/product/detail">
+                            <a href="/product/detail/<%= productos[i].id %>">
                                 <figure class="product-box_image">
                                     <img class="imgIndex" src="<%= productos[i].imagen %>" alt="<%= productos[i].nombre %>">
                                 </figure>
                                 <article class="product-box_data">
                                     <h2 class="prompt-semibold"><%= productos[i].nombre %></h2>
                                     <p class="prompt-light"><%= productos[i].descripcion %></p>
-                                    <p class="prompt-light">Comentarios: <%= productos[i].comments.length %></p>
+                                    <p class="prompt-light">Comentarios: <%= productos[i].comentarios.length %></p>
+                                    <a href=""><%= productos[i].usuario.email %></a>
                                 </article>
                             </a>
                         </section>
@@ -57,15 +58,15 @@
                 <h2 class="products-title prompt-semibold">Más comentados</h2>
             </div>
             <% if (productos && productos.length > 0) { %>
-                <!-- Ordenamos de menor a mayor los mas comentados -->
-                <% productos.sort((a, b) => b.comments.length - a.comments.length); %>
+               
+                
                 
                 <% for (let i = 0; i < productos.length && i < 8; i++) { %>
                     <div class="col-12 col-sm-6 col-lg-3">
                         <section class="product-box">
-                            <a href="./product/detail">
+                            <a href="./product/detail/<%= productos[i].id %>">
                                 <figure class="product-box_image">
-                                    <img class="imgIndex" src="<%= productos[i].imagen %>" alt="<%= productos[i].nombre %>">
+                                    <img class="imgIndex" src="/images/products/<%= productos[i].imagen %>" alt="<%= productos[i].nombre %>">
                                 </figure>
                                 <article class="product-box_data">
                                     <h2 class="prompt-semibold"><%= productos[i].nombre %></h2>

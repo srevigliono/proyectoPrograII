@@ -3,14 +3,19 @@ const op = data.Sequelize.Op;
 
 const indexController = {
     inicio: function (req, res) {
-        data.Product.findAll()
+        data.Product.findAll({
+            include: [{association: "usuario"}, 
+            {association: "comentarios"}],
+            order: [["created_at", "DESC"]]
+        })
+        
         .then(productos => {
             res.render("index", { title: "Inicio", productos });
         })
+        
         .catch(error => {
             console.error(error);
         });
-            res.render("index", {title: "Inicio", productos: data.product })
         },
 
     bus: function (req, res) {
@@ -26,9 +31,11 @@ const indexController = {
         }};
 
         data.Product.findAll(filtro)
+        
         .then(results => {
             return res.render('resultado', {titulo: `Resultados para tu búsqueda: ${buscar}`, productos: results});
         })
+        
         .catch(error => {
             console.log(error);
         });

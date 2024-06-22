@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
+	<%- include('./partials/head.ejs') %>
+	<!--  No anda la svista css -->
+<body>
 	
     <header>
 		<% if (locals.user != undefined) { %>
@@ -12,27 +15,32 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= productos[0].nombre %></h2> 
-			<p class="product-detail-description">
-				<a href="/product/add">Editar</a>
+			<h2 class="products-title"><%= products.nombre %></h2> 
+			<a href="/users/perfil/<%= products.usuario.id %>"><%= products.usuario.email %></a>
+			<% if (condition) { %>
+				<p class="product-detail-description">
+				<a href="/product/edit">Editar</a>
+				<a href="/product/delete/<%= products.id %>">Borrar</a>
 			</p>
+			<%}  %>
+			
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src=<%= productos[0].imagen %> alt="" class="product-detail-img">
+					<img src=<%= products.imagen %> alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						<%= productos[0].descripcion %> </p>
+						<%= products.descripcion %> </p>
 				</article>
-				<%for (let i = 0; i < productos[0].comentarios.length; i++) {%>
+				<%for (let i = 0; i < products.comentarios.length; i++) {%>
 				<div class="columnacoments">
 					<section class="comments">
 						<article>
-							<img src=<%= productos[0].comentarios[i].fotoPerfil %> alt="">
+							<img src=<%= products.comentarios[i].usuario.foto %> alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users/perfil"> <%= productos[0].comentarios[i].usuario %> </a> </strong>
-								<%= productos[0].comentarios[i].coment %></p>
+								<strong> <a href="/users/perfil/<%= products.comentarios[i].usuario.id %>"> <%= products.comentarios[i].usuario.email %> </a> </strong>
+								<%= products.comentarios[i].comentario %></p>
 							</div>
 						</article>
 					</section>
@@ -49,3 +57,4 @@
 	<!-- /product detail -->
 
 	<%- include('./partials/footer.ejs') %>
+</body>

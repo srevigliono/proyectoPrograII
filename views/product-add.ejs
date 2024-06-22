@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-	<!-- Includes-->
-	<%- include('./partials/headerLogueado.ejs') %>
-	
-	<body>
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <header>
+	<% if (locals.user != undefined) { %>
+		<%- include("./partials/headerLogueado") %>
+	<% } else { %>
+		<%- include("./partials/header") %>
+	<% } %>
+    </header>
 		<!-- Novedades -->
 		<div class="container products-wrapper">
 			<div class="row">
@@ -13,21 +20,31 @@
 				<!-- Show the "ultimos" products -->
 				<h2 class="col-12"> <i>/////////////////////////////////////////
 
-					<form action="" method="get" class="prompt-light" novalidate>
+					<form action="/product/add" method="POST" class="prompt-light" novalidate>
 			
 						<div>
 							<label for="imagen">Imagen: </label>
-							<input id="imagen" type="file" name="iamgen" required>
+							<input id="imagen" type="text" name="imagen" required>
 						</div>
+
+						<% if (locals.errors && errors.imagen) {%>
+							<p><%= errors.imagen.msg %></p>
+							<% } %>
 						<div>
 							<label for="nombre">Nombre del producto: </label>
-							<input id="nombre del producto" type="text" name="nombre producto" required>
+							<input id="nombre" type="text" name="nombre" required>
 						</div>
+
+						<% if (locals.errors && errors.nombre) {%>
+							<p><%= errors.nombre.msg %></p>
+							<% } %>
 						<div>
-							<label for="descripcción">descripcción: </label>
-							<input id="descripcción" type="text" name="descripcción" required>
+							<label for="descripcion">descripcción: </label>
+							<input id="descripcion" type="text" name="descripcion" required>
 						</div>
-						
+						<% if (locals.errors && errors.descripcion) {%>
+							<p><%= errors.descripcion.msg %></p>
+							<% } %>
 								<button type="submit">Agregar Producto</button></p>
 						</form>
 							

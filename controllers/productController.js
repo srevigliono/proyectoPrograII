@@ -77,8 +77,8 @@ const productController = {
         console.log('validationErrors : ', validationErrors);
         if (validationErrors.isEmpty()) {
             const nuevocom = {
-                usuario_id: req.session.user.id,
-                product_id: req.params.id,
+                usuario: req.session.user.id,
+                product: req.params.id,
                 comentario: form.comentario,
             };
 

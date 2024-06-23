@@ -45,9 +45,13 @@
 						</article>
 					</section>
 				<%}%>
-					<form class="form" action="/" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+				<% if(locals.user != undefined) {%>
+					<form class="form" action="/detail/id/<%= products.id%>" method="POST">
+						<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="añadircomentario">
 						<button type="submit" class="buy-now-button prompt-semibold">AGREGAR COMENTARIO</button>
+				<% } else { %>
+					<div><a href="/users/login">Inicia sesión para comentar en el producto.</a></div>
+				<% } %>
 					</form>
 					<hr>
 				</div>

@@ -15,8 +15,9 @@ const usersController = {
 
         if (validationErrors.isEmpty()) {
             const usuarioCreado = {
-                name: req.body.name,
+                
                 email: req.body.email,
+                user: req.body.usuario,
                 password: bcrypt.hashSync(req.body.password, 10),
                 dni: req.body.dni,
                 foto: req.body.foto,

@@ -22,7 +22,7 @@ const registerValidation = [
 
     body('usuario')
         .notEmpty()
-        .withMessage('Comlpetar el campo de Contraseña'),
+        .withMessage('Comlpetar el campo de usuario'),
 
     body('password')
         .notEmpty()

@@ -2,8 +2,14 @@
 <html lang="es">
 
 	<!-- Includes-->
-	<%- include('./partials/headerLogueado.ejs') %>
+<%- include('./partials/head.ejs') %>
+<!-- Includes-->
+
+
+<body>
 	<!-- Includes-->
+		<%- include("./partials/headerLogueado") %>
+						<!-- Includes-->
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
@@ -14,31 +20,31 @@
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> <i>///////////////////////////////////////// 
 
-				<form action="" method="get" class="prompt-light" novalidate>
+				<form action="/users/perfil/ <%= users.id  %>" method="POST" class="prompt-light" novalidate>
 			
 					<div>
 						<label for="email">Email: </label>
-						<input id="email" type="email" name="email" required>
+						<input id="email" type="email" name="email" value="<%= users.email %>" required>
 					</div>
 					<div>
 						<label for="usuario">Usuario: </label>
-						<input id="usuario" type="text" name="usuario" required>
+						<input id="usuario" type="text" name="usuario" value="<%= users.user %>" required>
 					</div>
 					<div>
 						<label for="contraseña">Contraseña: </label>
-						<input id="contraseña" type="password" name="contraseña" required>
+						<input id="contraseña" type="password" name="contraseña" value="<%= users.password %>" required>
 					</div>
 					<div>
-						<label for="fecha de nacmiento">Fecha de nacimiento: </label>
-						<input id="fecha nacimiento" type="date" name="fecha nacimiento" required>
+						<label for="fecha">Fecha de nacimiento: </label>
+						<input id="fecha" type="date" name="fecha" value="<%= users.fecha %>" required>
 					</div>
 					<div>
 						<label for="Nro de documento">Nro de documento: </label>
-						<input id="documento" type="number" name="documento" required>
+						<input id="documento" type="number" name="documento" value="<%= users.dni %>"required>
 					</div>
 					<div>
 						<label for="foto de perfil">Foto de perfil: </label>
-						<input id="foto" type="text" name="foto" required>
+						<input id="foto" type="text" name="foto" value="<%= users.foto %>" required>
 					</div>
 			
 		

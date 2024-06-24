@@ -11,7 +11,9 @@ router.get("/registrate",usersController.register );
 router.post("/registrate", registerValidation, usersController.store );
 
 router.get("/perfil/:id",usersController.perfil);
-router.get("/profile-edit",usersController.editarPerfil);
+
+router.get("/profile-edit/:id",usersController.editarPerfil);
+router.post("/perfil/:id",usersController.editarPerfilStore);
 
 router.post('/logout', usersController.logout);
 

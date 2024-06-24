@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <header>
+   		<!-- Header y Head -->
 	    <% if (locals.user != undefined) { %>
 		    <%- include("./partials/headerLogueado") %>
 	    <% } else { %>
 		    <%- include("./partials/header") %>
 	    <% } %>
-    </header>
+   		<!-- Header y Head -->
+
 
 		<!-- Novedades -->
 	<div class="container products-wrapper">
@@ -30,4 +31,11 @@
             <%}%>
 		</div>
 	</div>
+
+   	<!-- Footer -->
 	<%- include('./partials/footer.ejs') %>
+	<!-- Footer -->
+
+</body>
+</html>
+

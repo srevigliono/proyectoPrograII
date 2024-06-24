@@ -47,7 +47,10 @@ const productController = {
                     imagen: req.body.imagen,
                     nombre: req.body.nombre,
                     descripcion: req.body.descripcion,
-                    perteneceUsuario: req.body.usuario_id
+                    usuario_id: req.session.user.id,
+                    created_at: new Date(),
+                    updated_at: new Date(),
+                    deleted_at: null,
                 };
 
 

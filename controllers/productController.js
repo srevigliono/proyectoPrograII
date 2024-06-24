@@ -75,6 +75,7 @@ const productController = {
     comentar: function (req ,res) {
         const validationErrors = validationResult(req);
         console.log('validationErrors : ', validationErrors);
+        const id = req.params.id;
         if (validationErrors.isEmpty()) {
             const nuevocom = {
                 usuario_id: req.session.user.id,
@@ -83,7 +84,7 @@ const productController = {
             };
 
             db.Commentt.create(nuevocom)
-            .then(function (resultado) {
+            .then(function (results) {
                 {return res.redirect(`/detail/${id}`)}
             }).catch(function (error) {
                 return console.log(error);
@@ -93,7 +94,7 @@ const productController = {
             const id = req.params.id;
             db.Product.findByPk(id, {include: [{association: "usuario"}, {association: "comentarios", include: [{association: "usuario"}], order: [["created_at", "DESC"]]}]
             })
-            .then(function (res) {
+            .then(function (results) {
                 if (req.session.user != undefined && req.session.user.id == results.usuario.id) {
                     return res.render("product", {title: "Producto", products: results, comentarios: results.comentarios, errors: errors.mapped()}); 
                 }   

@@ -13,6 +13,7 @@ router.get('/delete/:id', productController.destroy);
 router.get("/add",productController.create);
 router.post("/add",productValidation,productController.createStore);
 
+router.get("/edit/:id", productController.edit);
+router.post("/edit/:id", productController.edited);
 
 module.exports = router;
-

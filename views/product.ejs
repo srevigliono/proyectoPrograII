@@ -24,7 +24,7 @@
             <% } %>
 			<% if (locals.user != undefined) { %>
 				<p class="product-detail-description">
-				<a href="/product/edit">Editar</a>
+				<a href="/product/edit/<%= products.id %>">Editar</a>
 				<a href="/product/delete/<%= products.id %>">Borrar</a>
 			</p>
 			<%} else {%>

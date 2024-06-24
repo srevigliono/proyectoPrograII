@@ -85,7 +85,7 @@ const productController = {
 
             db.Commentt.create(nuevocom)
             .then(function (results) {
-                {return res.redirect(`/detail/${id}`)}
+                {return res.redirect(`/product/detail/${id}`)}
             }).catch(function (error) {
                 return console.log(error);
             });
@@ -102,6 +102,37 @@ const productController = {
             .catch(function (error) {
                 return console.log(error);
             })
+        }
+    },
+    edit: function (req, res) {
+        return res.render("product-edit")
+    },
+    edited: function (req, res) {
+        const validationErrors = validationResult(req);
+        console.log("validationErrors : ", validationErrors)
+        const id = req.params.id;
+        if (!validationErrors.isEmpty()) {
+            db.Product.findByPk(id).then(
+                function (results) {
+                    res.render("product-edit", {
+                        errors: validationErrors.mapped(),
+                        oldData: req.body,
+                        producto: results
+                    })
+                }
+            )
+        } else {
+            db.Product.update({
+                imagen: req.body.imagen,
+                nombre: req.body.nombre,
+                descripcion: req.body.descripcion
+            },{
+                where: {id: id}
+            }).then(function (results) {
+                return res.redirect('/product/detail/${id}');
+            }).catch(function (error) {
+                console.log(error);
+            });
         }
     }
 }

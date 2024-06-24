@@ -20,7 +20,7 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= products.nombre %></h2> 
 			<% if (products.usuario) { %>
-                <a href="/users/perfil/<%= products.usuario.usuario_id %>"><%= products.usuario.email %></a>
+                <a href="/users/perfil/<%= products.usuario_id %>"><%= products.usuario.email %></a>
             <% } %>
 			<% if (locals.user != undefined) { %>
 				<p class="product-detail-description">

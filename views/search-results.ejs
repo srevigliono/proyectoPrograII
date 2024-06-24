@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+	<!-- Includes-->
 
-   		<!-- Header y Head -->
-	    <% if (locals.user != undefined) { %>
-		    <%- include("./partials/headerLogueado") %>
-	    <% } else { %>
-		    <%- include("./partials/header") %>
-	    <% } %>
-   		<!-- Header y Head -->
+    <%- include('./partials/head.ejs') %>
+	<!-- Includes-->
 
-
+<body>
+   	<!-- Includes-->
+	<% if (locals.user != undefined) { %>
+		<%- include("./partials/headerLogueado") %>
+	<% } else { %>
+		<%- include("./partials/header") %>
+	<% } %>
+	<!-- Includes-->
 		<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
@@ -36,9 +39,8 @@
 		</div>
 	</div>
 
-   	<!-- Footer -->
 	<%- include('./partials/footer.ejs') %>
-	<!-- Footer -->
-
+	
+	 
 </body>
 </html>

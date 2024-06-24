@@ -36,7 +36,7 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src=<%= products.imagen %> alt="" class="product-detail-img">
+					<img src="/images/<%= products.imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						<%= products.descripcion %> </p>
 				</article>
@@ -44,7 +44,7 @@
 				<div class="columnacoments">
 					<section class="comments">
 						<article>
-							<img src=<%= products.comentarios[i].usuario.foto %> alt="">
+							<img src="/images/users/<%= products.comentarios[i].usuario.foto %>" alt="">
 							<div class="data">
 								<p class="user">
 								<strong> <a href="/users/perfil/<%= products.comentarios[i].usuario.id %>"><%= products.comentarios[i].usuario.email %> </a> </strong>

@@ -49,7 +49,6 @@ const productController = {
                     imagen: req.body.imagen,
                     nombre: req.body.nombre,
                     descripcion: req.body.descripcion,
-                    
                 };
 
 

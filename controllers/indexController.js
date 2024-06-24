@@ -16,11 +16,16 @@ const indexController = {
         .catch(error => {
             console.error(error);
         });
-        },
+    },
 
     bus: function (req, res) {
         
         const buscar = req.query.search;
+
+        if (!buscar) {
+            console.log('No hay query');
+            return res.render('search-results', { productos: [], Query: '' });
+        }
         
         const filtro = {
             where: {
@@ -28,18 +33,24 @@ const indexController = {
                     { nombre: { [op.like]: '%' + `${buscar}` + '%' }}, 
                     { descripcion: { [op.like]: '%' + `${buscar}` + '%' }}
                 ]
-        }};
+            },
+            order: [['created_at', 'DESC']],
+                include: [
+                    {association: "usuario"}, 
+                    {association: "comentarios"}
+                ],
+            };
 
         data.Product.findAll(filtro)
         
         .then(results => {
-            return res.render('resultado', {titulo: `Resultados para tu búsqueda: ${buscar}`, productos: results});
+            return res.render('search-results', {titulo: `Resultados para tu búsqueda: ${buscar}`, productos: results, comentarios: results.comentarios, buscar: buscar});
         })
         
         .catch(error => {
             console.log(error);
         });
-    }   
+    }
 }
 
 module.exports = indexController;

@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
+
 <!-- Include Head -->
 <head>
 	<meta charset="UTF-8">
@@ -54,7 +53,7 @@
 				</ul>
 	
 				<ul class="right-navbar">
-					<li><a href="/users/perfil">
+					<li><a href="/users/perfil/<%= user.id %>">
 						<%= locals.user.usuario %> <i class="fas fa-user"></i>
 						</a>
 					</li>
@@ -78,5 +77,3 @@
 	</header>
 	<!-- /Header -->
 	
-</body>	
-</html>

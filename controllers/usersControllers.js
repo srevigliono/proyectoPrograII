@@ -96,10 +96,12 @@ const usersController = {
             .then(function (results) {
                 console.log("DATA USUARIO POR ID: ", JSON.stringify(results, null, 4));
                 const condition = false;
+                return res.render('profile', {title: 'Perfil', products: results.products, comentarios: results.comments})
             })
             .catch(function (error) {
                 console.log(error);
             });
+
     },
 
     editarPerfil:

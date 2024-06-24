@@ -13,7 +13,7 @@ router.post("/registrate", registerValidation, usersController.store );
 router.get("/perfil/:id",usersController.perfil);
 
 router.get("/profile-edit/:id",usersController.editarPerfil);
-router.post("/perfil/:id",usersController.editarPerfilStore);
+router.post("/perfil/:id", registerValidation , usersController.editarPerfilStore);
 
 router.post('/logout', usersController.logout);
 

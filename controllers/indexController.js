@@ -43,8 +43,8 @@ const indexController = {
 
         data.Product.findAll(filtro)
         
-        .then(results => {
-            return res.render('search-results', {titulo: `Resultados para tu búsqueda: ${buscar}`, productos: results, comentarios: results.comentarios, buscar: buscar});
+        .then(productos => {
+            return res.render('search-results', {productos: productos});
         })
         
         .catch(error => {

@@ -95,7 +95,7 @@ const productController = {
             })
             .then(function (res) {
                 if (req.session.user != undefined && req.session.user.id == results.usuario.id) {
-                    return res.render("productos", {title: "Producto", products: results, comentarios: results.comentarios, errors: errors.mapped()}); 
+                    return res.render("product", {title: "Producto", products: results, comentarios: results.comentarios, errors: errors.mapped()}); 
                 }   
             })
             .catch(function (error) {

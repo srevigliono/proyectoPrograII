@@ -91,13 +91,12 @@ const productController = {
             
         } else {
             const id = req.params.id;
-            const cond = false;
             db.Product.findByPk(id, {include: [{association: "usuario"}, {association: "comentarios", include: [{association: "usuario"}], order: [["created_at", "DESC"]]}]
             })
             .then(function (res) {
                 if (req.session.user != undefined && req.session.user.id == results.usuario.id) {
-                    cond = true;
-                } return res.render("productos", {title: "Producto", productos: results, comentarios: results.comentarios, errors: errors.mapped()});        
+                    return res.render("productos", {title: "Producto", products: results, comentarios: results.comentarios, errors: errors.mapped()}); 
+                }   
             })
             .catch(function (error) {
                 return console.log(error);

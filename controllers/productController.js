@@ -74,18 +74,17 @@ const productController = {
     
     comentar: function (req ,res) {
         const validationErrors = validationResult(req);
-        const agregar = req.body;
         console.log('validationErrors : ', validationErrors);
         if (validationErrors.isEmpty()) {
             const nuevocom = {
-                usuario: req.session.user.id,
-                product: req.params.id,
-                comentario: form.comentario,
+                usuario_id: req.session.user.id,
+                producto_id: req.params.id,
+                comentario: req.body.añadircomentario,
             };
 
             db.Commentt.create(nuevocom)
             .then(function (resultado) {
-                {return res.redirect("/detail/id")}
+                {return res.redirect(`/detail/${id}`)}
             }).catch(function (error) {
                 return console.log(error);
             });

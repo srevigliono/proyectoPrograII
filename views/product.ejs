@@ -16,7 +16,9 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= products.nombre %></h2> 
-			<a href="/users/perfil/<%= products.usuario.id %>"><%= products.usuario.email %></a>
+			<% if (products.usuario) { %>
+                <a href="/users/perfil/<%= products.usuario.usuario_id %>"><%= products.usuario.email %></a>
+            <% } %>
 			<% if (condition) { %>
 				<p class="product-detail-description">
 				<a href="/product/edit">Editar</a>

@@ -104,10 +104,48 @@ const usersController = {
     },
 
     editarPerfil:
-        function (req, res, next) {
-            const usuarios = oldData.usuarios
-            res.render("profile-edit", { title: "Editar perfil", usuarios })
+        function (req, res) {
+            const id = req.params.id;
+
+            db.User.findByPk(id).then(function (user) {
+                res.render("profile-edit", {
+                    users: user
+                });
+            });
+
+
         },
+    
+    editarPerfilStore:
+        function(req,res){
+            const validationErrors = validationResult(req);
+            console.log("validationErrors : ", validationErrors) 
+            const id = req.params.id; // declaro el id
+            if (!validationErrors.isEmpty()) { // errors
+                db.User.findByPk(id).then( //busco por PK
+                    function (results) {
+                        res.render("profile-edit", {errors: validationErrors.mapped(), oldData: req.body, users: user}) //hago el render
+                    }
+                )
+            } else {
+                db.User.update({
+                    email: req.body.email,
+                    user: req.body.usuario,
+                    password: req.body.contraseña,
+                    fecha: req.body.fecha,
+                    dni: req.body.documento,
+                    foto: req.body.foto
+
+                },{
+                    where: {id: id}
+                }).then(function (users) {
+                    return res.redirect(`/users/perfil/${id}`);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }
+
+        }
 
 };
 

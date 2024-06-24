@@ -1,68 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 
-	<!-- Includes-->
-	<%- include('./partials/head.ejs') %>
-	<!-- Includes-->
-
-
-<body>
-	<!-- Includes-->
-	<% if (locals.user !=undefined) { %>
-		<%- include("./partials/headerLogueado") %>
-	<% } else { %>
-		<%- include("./partials/header") %>
-	<% } %>
+<!-- Includes-->
+<%- include('./partials/head.ejs') %>
 	<!-- Includes-->
 
-	<!-- Novedades -->
-<div class="container products-wrapper">
-	<div class="row">
-		<div class="col-12">
-			<h2 class="products-title prompt-semibold">Editar producto</h2>
-		</div>
-	<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>/////////////////////////////////////////
 
-			<form action="/product/edit/<%=products.id%>" method="POST" class="prompt-light" novalidate>
+	<body>
+		<!-- Includes-->
+		<% if (locals.user !=undefined) { %>
+			<%- include("./partials/headerLogueado") %>
+				<% } else { %>
+					<%- include("./partials/header") %>
+						<% } %>
+							<!-- Includes-->
 
-			<div>
-				<label for="imagen">Cambiar imagen: </label>
-				<input id="imagen" type="text" name="imagen" required>
-			</div>
+							<!-- Novedades -->
+							<div class="container products-wrapper">
+								<div class="row">
+									<div class="col-12">
+										<h2 class="products-title prompt-semibold">Editar producto</h2>
+									</div>
+									<!-- Show the "ultimos" products -->
+									<h2 class="products-title prompt-semibold">Editar producto</h2>
+								</div>
+								<!-- Show the "ultimos" products -->
+								<h2 class="col-12"> <i>/////////////////////////////////////////
 
-			<% if (locals.errors && errors.imagen) {%>
-				<p>
-					<%= errors.imagen.msg %>
-				</p>
-			<% } %>
-			<div>
-				<label for="nombre">Cambiar nombre del producto: </label>
-				<input id="nombre" type="text" name="nombre" required>
-			</div>
+										<form action="/product/edit/<%=products.id%>" method="POST" class="prompt-light"
+											novalidate>
 
-			<% if (locals.errors && errors.nombre) {%>
-				<p>
-					<%= errors.nombre.msg %>
-				</p>
-			<% } %>
-			<div>
-				<label for="descripcion">Cambiar descripcción: </label>
-				<input id="descripcion" type="text" name="descripcion" required>
-			</div>
-			<% if (locals.errors && errors.descripcion) {%>
-				<p>
-					<%= errors.descripcion.msg %>
-				</p>
-			<% } %>
-				<button type="submit">Guardar cambios</button></p>
-			</form>
-			</h2>
+											<div>
+												<label for="imagen">Cambiar imagen: </label>
+												<input id="imagen" type="text" name="imagen"
+													value="<%= products.imagen %>" required>
+											</div>
+
+											<% if (locals.errors && errors.imagen) {%>
+												<p>
+													<%= errors.imagen.msg %>
+												</p>
+												<% } %>
+													<div>
+														<label for="nombre">Cambiar nombre del producto: </label>
+														<input id="nombre" type="text" name="nombre"
+															value="<%= products.nombre %>" required>
+													</div>
+
+													<% if (locals.errors && errors.nombre) {%>
+														<p>
+															<%= errors.nombre.msg %>
+														</p>
+														<% } %>
+															<div>
+																<label for="descripcion">Cambiar descripcción: </label>
+																<input id="descripcion" type="text" name="descripcion"
+																	value="<%= products.descripcion %>" required>
+															</div>
+															<% if (locals.errors && errors.descripcion) {%>
+																<p>
+																	<%= errors.descripcion.msg %>
+																</p>
+																<% } %>
+																	<button type="submit">Guardar cambios</button></p>
+										</form>
+								</h2>
 
 
-	<!-- Footer -->
-	<%- include('./partials/footer.ejs') %>
-	<!-- Footer -->
-	 
-</body>
+								<!-- Footer -->
+								<%- include('./partials/footer.ejs') %>
+									<!-- Footer -->
+
+	</body>
+
 </html>

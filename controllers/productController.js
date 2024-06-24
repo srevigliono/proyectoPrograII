@@ -105,16 +105,23 @@ const productController = {
         }
     },
     edit: function (req, res) {
-        return res.render("product-edit")
+        const id = req.params.id;
+    
+        
+        db.Product.findByPk(id).then(function (product) {
+            res.render("product-edit", {
+                products: product // Lo mando a la vista
+            });
+        });
     },
     edited: function (req, res) {
         const validationErrors = validationResult(req);
-        console.log("validationErrors : ", validationErrors)
-        const id = req.params.id;
-        if (!validationErrors.isEmpty()) {
-            db.Product.findByPk(id).then(
+        console.log("validationErrors : ", validationErrors) //errors
+        const id = req.params.id; // declaro el id
+        if (!validationErrors.isEmpty()) { // errors
+            db.Product.findByPk(id).then( //busco por PK
                 function (results) {
-                    res.render("product-edit", {errors: validationErrors.mapped(), oldData: req.body, products: results})
+                    res.render("product-edit", {errors: validationErrors.mapped(), oldData: req.body, products: product}) //hago el render
                 }
             )
         } else {
@@ -124,8 +131,8 @@ const productController = {
                 descripcion: req.body.descripcion
             },{
                 where: {id: id}
-            }).then(function (results) {
-                return res.redirect(`/product/edit/${id}`, {title: `Editar ${results.nombre}`, products: results});
+            }).then(function (products) {
+                return res.redirect(/product/detail/${id});
             }).catch(function (error) {
                 console.log(error);
             });

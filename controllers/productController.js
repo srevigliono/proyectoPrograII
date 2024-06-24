@@ -129,7 +129,7 @@ const productController = {
             },{
                 where: {id: id}
             }).then(function (results) {
-                return res.redirect('/product/detail/${id}');
+                return res.redirect(`/product/detail/${id}`, {title: `Editar ${results.nombre}`, products: results});
             }).catch(function (error) {
                 console.log(error);
             });

@@ -29,8 +29,8 @@
 				</div>
 				<div>
 					<ul class="">
-						<li><%= user.products %></li>
-						<li><%= user.comments %></li>
+						<li> Productos publicados: <%= user.products.length %></li>
+						<li> Comentarios hechos: <%= user.comments.length %></li>
 					</ul>
 				</div>
 			</div>
@@ -42,37 +42,29 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Mis productos</h2>
+				<h2 class="products-title prompt-semibold">Mis productos</h2>
 			</div>
-			<!-- Show mis productos -->
-			<div class="container products-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title prompt-semibold">Novedades</h2>
+			<% if (products && user.products.length > 0) { %> 
+				<% for (let i = 0; i < user.products.length && i < 4; i++) { %>
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+							<a href="/product/detail/<%= user.products[i].id  %>"> 
+								<figure class="product-box_image">
+									<img class="imgIndex" src="<%= user.products[i].imagen %>" alt="<%= user.products[i].nombre %>">
+								</figure>
+								<article class="product-box_data">
+									<h2 class="prompt-semibold"><%= user.products[i].user %></h2>
+								</article>
+							</a>
+						</section>
 					</div>
-					<% if (products && user.products > 0) { %> 
-						<% for (let i = 0; i < user.products && i < 4; i++) { %>
-							<div class="col-12 col-sm-6 col-lg-3">
-								<section class="product-box">
-									<a href="/product/detail">
-										<figure class="product-box_image">
-											<img class="imgIndex" src="<%= user.products[i].imagen %>" alt="<%= user.products[i].nombre %>">
-										</figure>
-										<article class="product-box_data">
-											<h2 class="prompt-semibold"><%= user.products[i].user %></h2>
-											<p class="prompt-light">Comentarios: <%= user.products[i].comments.length %></p>
-										</article>
-									</a>
-								</section>
-							</div>
-						<% } %>
-					<% } else { %> <!-- Mensaje alternativo si no hay productos -->
-						<div class="col-12">
-							<p>No hay productos disponibles</p>
-						</div>
-					<% } %>
+				<% } %>
+			<% } else { %> <!-- Mensaje alternativo si no hay productos -->
+				<div class="col-12">
+					<p>No publicaste ningún producto.</p>
 				</div>
-			</div>
+			<% } %>
+	
 		</div>
 	</div>
 	<!-- /Mis productos -->

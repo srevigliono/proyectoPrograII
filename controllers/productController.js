@@ -114,11 +114,7 @@ const productController = {
         if (!validationErrors.isEmpty()) {
             db.Product.findByPk(id).then(
                 function (results) {
-                    res.render("product-edit", {
-                        errors: validationErrors.mapped(),
-                        oldData: req.body,
-                        producto: results
-                    })
+                    res.render("product-edit", {errors: validationErrors.mapped(), oldData: req.body, products: results})
                 }
             )
         } else {
@@ -129,7 +125,7 @@ const productController = {
             },{
                 where: {id: id}
             }).then(function (results) {
-                return res.redirect(`/product/detail/${id}`, {title: `Editar ${results.nombre}`, products: results});
+                return res.redirect(`/product/edit/${id}`, {title: `Editar ${results.nombre}`, products: results});
             }).catch(function (error) {
                 console.log(error);
             });

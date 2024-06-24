@@ -17,7 +17,7 @@ const usersController = {
             const usuarioCreado = {
                 
                 email: req.body.email,
-                name: req.body.name,
+                user: req.body.usuario,
                 password: bcrypt.hashSync(req.body.password, 10),
                 dni: req.body.dni,
                 foto: req.body.foto,

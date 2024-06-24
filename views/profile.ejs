@@ -21,9 +21,11 @@
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"> <%= user.user %>
+						<%if(userlogueado && userlogueado.id === user.id) {%>
 						<a href="/users/profile-edit/<%= user.id %>">
 							<i class="fas fa-cog"></i>
 						</a>
+						<% } %>
 					</h1>
 					<a class="btn mt-3 ml-4" href="/">Seguir</a>
 				</div>

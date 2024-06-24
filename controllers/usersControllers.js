@@ -95,7 +95,7 @@ const usersController = {
         })
             .then(function (results) {
                 const condition = false;
-                return res.render('profile', {title: 'Perfil', user: results, products: results.products, comentarios: results.comments})
+                return res.render('profile', {title: 'Perfil', user: results, products: results.products, comentarios: results.comments, userlogueado: req.session.user})
             })
             .catch(function (error) {
                 console.log(error);

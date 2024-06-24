@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
+	<!-- Includes-->
 	<%- include('./partials/head.ejs') %>
-	<!--  No anda la svista css -->
+	<!-- Includes-->
+
 <body>
-	
-    <header>
-		<% if (locals.user != undefined) { %>
-			<%- include("./partials/headerLogueado") %>
-		<% } else { %>
-			<%- include("./partials/header") %>
-		<% } %>
-		</header>
+	<!-- Includes-->
+	<% if (locals.user != undefined) { %>
+		<%- include("./partials/headerLogueado") %>
+	<% } else { %>
+		<%- include("./partials/header") %>
+	<% } %>
+	<!-- Includes-->
+
 		
 	<!-- product detail -->
 	<div class="container products-wrapper">
@@ -19,13 +22,16 @@
 			<% if (products.usuario) { %>
                 <a href="/users/perfil/<%= products.usuario.usuario_id %>"><%= products.usuario.email %></a>
             <% } %>
-			<% if (condition) { %>
+			<% if (locals.user != undefined) { %>
 				<p class="product-detail-description">
 				<a href="/product/edit">Editar</a>
 				<a href="/product/delete/<%= products.id %>">Borrar</a>
 			</p>
-			<%}  %>
-			
+			<%} else {%>
+				<p class="product-detail-description">
+					<a href="/users/login">Tienes que iniciar sesion para comentar</a>
+					
+			<%} %>
 		</div>
 		<div class="product-detail">
 			<div class="row">
@@ -41,7 +47,7 @@
 							<img src=<%= products.comentarios[i].usuario.foto %> alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users/perfil/<%= products.comentarios[i].usuario.id %>"> <%= products.comentarios[i].usuario.email %> </a> </strong>
+								<strong> <a href="/users/perfil/<%= products.comentarios[i].usuario.id %>"><%= products.comentarios[i].usuario.email %> </a> </strong>
 								<%= products.comentarios[i].comentario %></p>
 							</div>
 						</article>
@@ -49,7 +55,7 @@
 				<%}%>
 				<% if(locals.user != undefined) {%>
 					<form class="form" action="/detail/<%= products.id%>" method="POST">
-						<input class="form-input" type="text" value="<%= products.id%>" placeholder="Agregar comentario" name="añadircomentario">
+						<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="añadircomentario">
 						<button type="submit" class="buy-now-button prompt-semibold">AGREGAR COMENTARIO</button>
 				<% } else { %>
 					<div><a href="/users/login">Inicia sesión para comentar en el producto.</a></div>
@@ -62,5 +68,10 @@
 	</div>
 	<!-- /product detail -->
 
+	<!-- Footer -->
 	<%- include('./partials/footer.ejs') %>
+	<!-- Footer -->
+	 
 </body>
+</html>
+

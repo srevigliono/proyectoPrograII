@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 	<!-- Includes-->
-	<%- include('./partials/headerLogueado.ejs') %>
-		
+	<%- include('./partials/head.ejs') %>
+	<!-- Includes-->
+
 <body>
-	
+	<!-- Includes-->
+	<% if (locals.user != undefined) { %>
+		<%- include("./partials/headerLogueado") %>
+	<% } else { %>
+		<%- include("./partials/header") %>
+	<% } %>
+	<!-- Includes-->
 	<!-- Datos del usuario -->
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
@@ -22,8 +29,8 @@
 				</div>
 				<div>
 					<ul class="">
-						<li><%= user.products.length %></li>
-						<li><%= user.comments.length %></li>
+						<li><%= user.products %></li>
+						<li><%= user.comments %></li>
 					</ul>
 				</div>
 			</div>
@@ -43,8 +50,8 @@
 					<div class="col-12">
 						<h2 class="products-title prompt-semibold">Novedades</h2>
 					</div>
-					<% if (products && user.products.length > 0) { %> <!-- Verificación agregada -->
-						<% for (let i = 0; i < user.products.length && i < 4; i++) { %>
+					<% if (products && user.products > 0) { %> 
+						<% for (let i = 0; i < user.products && i < 4; i++) { %>
 							<div class="col-12 col-sm-6 col-lg-3">
 								<section class="product-box">
 									<a href="/product/detail">
@@ -70,7 +77,10 @@
 	</div>
 	<!-- /Mis productos -->
 
-</body>	
+	<!-- Footer -->
+	<%- include('./partials/footer.ejs') %>
+	<!-- Footer -->
+	 
+</body>
 </html>
 
-<%- include('./partials/footer.ejs') %>

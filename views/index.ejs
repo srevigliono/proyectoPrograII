@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+	<!-- Includes-->
+
     <%- include('./partials/head.ejs') %>
-</head>
+	<!-- Includes-->
+
 <body>
-    <header>
+   	<!-- Includes-->
 	<% if (locals.user != undefined) { %>
 		<%- include("./partials/headerLogueado") %>
 	<% } else { %>
 		<%- include("./partials/header") %>
 	<% } %>
-    </header>
+	<!-- Includes-->
+
 
     <!-- Banner -->
     <div class="banner">
@@ -84,8 +87,10 @@
         </div>
     </div>
 
-    <footer>
-        <%- include('./partials/footer.ejs') %>
-    </footer>
+	<!-- Footer -->
+	<%- include('./partials/footer.ejs') %>
+	<!-- Footer -->
+	 
 </body>
 </html>
+

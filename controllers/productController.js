@@ -16,9 +16,7 @@ const productController = {
             })
 
                 .then(function (results) {
-                    //if (req.session.user == undefined && req.session.user.id != results.usuario.id) {
-                    //  condition = false;
-                    //}  COMO NO ANDA EL LOGIN, SIEMPRE VA A DAR FALSE (TIRAR EL ERROR)
+                    
                     return res.render("product", { title: "Productos", products: results, condition: condition });
 
                 }).catch(function (err) {
@@ -49,6 +47,10 @@ const productController = {
                     imagen: req.body.imagen,
                     nombre: req.body.nombre,
                     descripcion: req.body.descripcion,
+                    usuario_id: req.session.user.id,
+                    created_at: new Date(),
+                    updated_at: new Date(),
+                    deleted_at: null,
                 };
 
 

@@ -119,16 +119,9 @@ const usersController = {
     
     editarPerfilStore:
         function(req,res){
-            const validationErrors = validationResult(req);
-            console.log("validationErrors : ", validationErrors) 
+            
             const id = req.params.id; // declaro el id
-            if (!validationErrors.isEmpty()) { // errors
-                db.User.findByPk(id).then( //busco por PK
-                    function (results) {
-                        res.render("profile-edit", {errors: validationErrors.mapped(), oldData: req.body, users: user}) //hago el render
-                    }
-                )
-            } else {
+       
                 db.User.update({
                     email: req.body.email,
                     user: req.body.usuario,
@@ -144,7 +137,7 @@ const usersController = {
                 }).catch(function (error) {
                     console.log(error);
                 });
-            }
+            
 
         }
 

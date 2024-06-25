@@ -31,6 +31,7 @@ const usersController = {
                 })
                 .catch(function (err) {
                     console.log("Error al grabar el usuario", err);
+                    return res.render("register")
                 })
         }
         else {

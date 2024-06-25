@@ -28,6 +28,9 @@
 			<div>
 				<label for="usuario">Usuario: </label>
 				<input id="usuario" type="text" name="usuario" required>
+				<% if (locals.errors && errors.usuario) { %>
+					<%= errors.usuario.msg %>                                                                             
+				<% } %>
 			</div>
 			<div>
 				<label for="contraseña">Contraseña: </label>
@@ -39,21 +42,24 @@
 			<div>
 				<label for="fecha de nacmiento">Fecha de nacimiento: </label>
 				<input id="fecha" type="date" name="fecha" required>
+				<% if (locals.errors && errors.fecha) { %>
+					<%= errors.fecha.msg %>                                                                             
+				<% } %>
 				                                                                          
 			
 			</div>
 			<div>
 				<label for="Nro de documento">Nro de documento: </label>
 				<input id="dni" type="number" name="dni" required>
-				<% if (locals.errors && errors.password) { %>
-					<%= errors.password.msg %>                                                                             
+				<% if (locals.errors && errors.dni) { %>
+					<%= errors.dni.msg %>                                                                             
 				<% } %>
 			</div>
 			<div>
 				<label for="foto de perfil">Foto de perfil: </label>
 				<input id="foto" type="text" name="foto" required>
-				<% if (locals.errors && errors.password) { %>
-					<%= errors.password.msg %>                                                                             
+				<% if (locals.errors && errors.foto) { %>
+					<%= errors.foto.msg %>                                                                             
 				<% } %>
 			</div>
 	

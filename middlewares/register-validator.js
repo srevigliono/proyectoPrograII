@@ -30,14 +30,18 @@ const registerValidation = [
         .isLength({ min: 5 }),
 
     body('fecha')
-        .optional(),
+        .notEmpty()
+        .withMessage("Ingrese una fecha válida"),
 
     body('dni')
-        .optional(),
+        .notEmpty()
+        .withMessage("Ingrese un documento válido")
+        .isNumeric(),
         
 
     body('foto')
         .optional()
+       
 
 ]
 
